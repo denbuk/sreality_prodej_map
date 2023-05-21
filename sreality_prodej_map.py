@@ -1,7 +1,5 @@
 from collections import namedtuple
 from datetime import datetime as dt
-from google.oauth2 import service_account
-from gsheetsdb import connect
 from PIL import Image
 import altair as alt
 import math
@@ -11,6 +9,8 @@ import streamlit as st
 import requests
 import json
 import time
+from google.oauth2 import service_account
+from gsheetsdb import connect
 
 with st.echo(code_location='below'):
     st.title('Adobe tag generator')
