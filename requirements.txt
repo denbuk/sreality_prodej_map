@@ -1,2 +1,2 @@
 # requirements.txt
-gsheetsdb==2.0
+gsheetsdb==0.1.13
