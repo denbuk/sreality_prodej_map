@@ -1,6 +1,7 @@
 from collections import namedtuple
 from datetime import datetime as dt
 from PIL import Image
+import pyparsing
 import altair as alt
 import math
 import pandas as pd
@@ -9,7 +10,6 @@ import streamlit as st
 import requests
 import json
 import time
-import pyparsing
 from google.oauth2 import service_account
 from gsheetsdb import connect
 
