@@ -1,23 +1,6 @@
-from collections import namedtuple
-from datetime import datetime as dt
-from PIL import Image
-# import pyparsing
-import altair as alt
-import math
-import pandas as pd
-import numpy as np
 import streamlit as st
-import requests
-import json
 from google.oauth2 import service_account
 from gsheetsdb import connect
-
-with st.echo(code_location='below'):
-    st.title('Adobe tag generator')
-    with st.spinner('Wait for it...'):
-        time.sleep(2)
-        
-# streamlit_app.py
 
 # Create a connection object.
 credentials = service_account.Credentials.from_service_account_info(
