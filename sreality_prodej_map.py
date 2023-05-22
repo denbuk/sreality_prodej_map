@@ -38,7 +38,7 @@ fig = px.scatter_mapbox(df, lat="lat", lon="lon", color="price", size="size", si
 
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-
+st.title("Prodej bytů")
 st.plotly_chart(fig)
 #st.table(df)
 #df.columns = ['name', 'lat', 'lon']
