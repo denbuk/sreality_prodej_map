@@ -1,7 +1,7 @@
 from collections import namedtuple
 from datetime import datetime as dt
 from PIL import Image
-import pyparsing
+# import pyparsing
 import altair as alt
 import math
 import pandas as pd
