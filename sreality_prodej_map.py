@@ -2,6 +2,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from gsheetsdb import connect
 import pandas as pd
+import plotly.express as px
 
 # Create a connection object.
 credentials = service_account.Credentials.from_service_account_info(
@@ -32,7 +33,13 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
 # Print results.
 df = pd.DataFrame(rows)
-st.table(df)
+
+fig = px.scatter_mapbox(df, lat="lat", lon="lon", zoom=3)
+
+fig.update_layout(mapbox_style="open-street-map")
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+st.plotly_chart(fig)
+#st.table(df)
 #df.columns = ['name', 'lat', 'lon']
 
 
