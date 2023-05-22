@@ -32,5 +32,3 @@ df = pd.read_csv(url)
 df.columns = ['name', 'lat', 'lon']
 
 st.map(df)
-
-https://docs.google.com/spreadsheets/d/1l5YgElKRpM1trDFaIY-q-rAJ2OaPHLhTBVVQ0Ed0aeQ/edit?usp=sharing
