@@ -23,8 +23,12 @@ def run_query(query):
 sheet_url = st.secrets["private_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
+sheet_id = "1l5YgElKRpM1trDFaIY"
+sheet_name = "sreality-api-first-prodej"
+url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
+
 # Print results.
-df = pd.read_csv(rows)
+df = pd.read_csv(url)
 df.columns = ['name', 'lat', 'lon']
 
 st.map(df)
