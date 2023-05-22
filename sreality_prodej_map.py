@@ -32,6 +32,8 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
 # Print results.
 df = pd.DataFrame(rows)
-df.columns = ['name', 'lat', 'lon']
+st.table(df)
+#df.columns = ['name', 'lat', 'lon']
 
-st.map(df)
+
+#st.map(df)
