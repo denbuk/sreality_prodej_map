@@ -38,6 +38,8 @@ fig = px.scatter_mapbox(df, lat="lat", lon="lon", color="price", hover_name="nam
 
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig.update_traces(cluster=dict(enabled=True))
+
 st.plotly_chart(fig)
 #st.table(df)
 #df.columns = ['name', 'lat', 'lon']
