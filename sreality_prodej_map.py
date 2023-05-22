@@ -9,7 +9,6 @@ import numpy as np
 import streamlit as st
 import requests
 import json
-import time
 from google.oauth2 import service_account
 from gsheetsdb import connect
 
