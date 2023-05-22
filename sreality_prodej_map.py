@@ -34,7 +34,7 @@ rows = run_query(f'SELECT * FROM "{sheet_url}"')
 # Print results.
 df = pd.DataFrame(rows)
 
-fig = px.scatter_mapbox(df, lat="lat", lon="lon", hover_name="name", zoom=3)
+fig = px.scatter_mapbox(df, lat="lat", lon="lon", color="price", hover_name="name", color_continuous_scale=px.colors.cyclical.IceFire, zoom=3)
 
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
