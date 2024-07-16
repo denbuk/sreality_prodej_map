@@ -1,8 +1,28 @@
 import streamlit as st
 import requests
 import pandas as pd
+import os
 import json
 
+# Define the path for the CSV file
+csv_file_path = 'data.csv'
+
+# Function to save data to CSV
+def save_to_csv(estates):
+    # Check if the CSV file exists
+    if os.path.exists(csv_file_path):
+        df = pd.read_csv(csv_file_path)
+    else:
+        df = pd.DataFrame(columns=['id', 'name', 'price'])  # Adjust columns as needed
+
+    # Create a DataFrame from the estates list
+    estates_df = pd.DataFrame(estates)
+    
+    # Append new data
+    df = pd.concat([df, estates_df], ignore_index=True)
+    
+    # Save to CSV
+    df.to_csv(csv_file_path, index=False)
 # Function to fetch data from API endpoint
 def fetch_data(endpoint):
     response = requests.get(endpoint)
@@ -22,17 +42,16 @@ def main():
     if st.button("Fetch Data"):
         if endpoint:
             data = fetch_data(endpoint)
-            if data:
-                # Display data
-                st.write(data)
+            if data and '_embedded' in data and 'estates' in data['_embedded']:
+                estates = data['_embedded']['estates']
+                save_to_csv(estates)
+                st.success("Data saved to CSV successfully!")
 
-                # Convert to DataFrame for better display
-                if isinstance(data, list):
-                    df = pd.DataFrame(data)
-                    st.dataframe(df)
-                elif isinstance(data, dict):
-                    df = pd.DataFrame([data])
-                    st.dataframe(df)
+                # Display the estates
+                df = pd.DataFrame(estates)
+                st.dataframe(df)
+            else:
+                st.warning("No estates found in the response.")
         else:
             st.warning("Please enter a valid URL.")
 
