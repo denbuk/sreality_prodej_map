@@ -4,6 +4,8 @@ import pandas as pd
 import os
 import json
 
+st.write("Current Directory:", os.getcwd())
+
 # Define the path for the CSV file
 csv_file_path = 'data.csv'
 
