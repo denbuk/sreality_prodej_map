@@ -35,24 +35,6 @@ def save_to_google_sheets(data, sheet_name):
 
     st.write(sr_estates_list)
 
-
-"""
-    # Prepare the data to be written
-    if isinstance(data, list):
-        # Assuming data is a list of dictionaries, append only the first row for simplicity
-        keys = list(data[0].keys())
-        values = list(data[0].values())
-        worksheet.append_row(keys)
-        worksheet.append_row(values)
-    elif isinstance(data, dict):
-        # Assuming data is a single dictionary
-        keys = list(data.keys())
-        values = list(data.values())
-        worksheet.append_row(keys)
-        worksheet.append_row(values)
-    else:
-        st.error("Unsupported data format")
-"""
 # Streamlit app layout
 st.title("Fetch and Save Data")
 ''
