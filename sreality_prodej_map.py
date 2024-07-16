@@ -24,7 +24,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_dict(CREDENTIALS, scop
 client = gspread.authorize(credentials)
 
 def update_sheet(client):
-    sheet = client.open(<SHEETNAME>)
+    sheet = client.open("streamlit-sreality-v2.0")
     sheet_insurance = sheet.get_worksheet(0)
     sheet_insurance.insert_rows(df.values.tolist())
 
