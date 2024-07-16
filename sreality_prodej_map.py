@@ -39,12 +39,12 @@ def save_to_google_sheets(data, sheet_name):
 st.title("Fetch and Save Data")
 ''
 
-endpoint = st.text_input("API Endpoint", "https://api.example.com/data")
-sheet_name = st.text_input("Google Sheet Name", "Your Google Sheet Name")
+endpoint = st.text_input("API Endpoint", "https://www.sreality.cz/api/cs/v2/estates?category_main_cb=1&category_type_cb=1&ownership=1&per_page=5&tms=1721153792&page=5&floor_number=1%7C1&%26no_auction=1&no_shares=1")
+sheet_name = st.text_input("Google Sheet Name", "sreality-api-update-2")
 
 if st.button("Fetch and Save"):
     data = fetch_data(endpoint)
     if data:
         
-        ##save_to_google_sheets(data, sheet_name)
+        save_to_google_sheets(data, sheet_name)
         st.success("Data saved to Google Sheets successfully")
