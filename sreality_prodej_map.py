@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
@@ -15,10 +16,13 @@ new_pet = st.text_input("Enter a pet type:")
 
 if st.button("Add to Spreadsheet"):
     # Create a new DataFrame for the new data
-    new_data = {'name': new_name, 'pet': new_pet}
-    df = df.append(new_data, ignore_index=True)
+    new_data = pd.DataFrame({'name': [new_name], 'pet': [new_pet]})
+    
+    # Concatenate the new data with the existing DataFrame
+    df = pd.concat([df, new_data], ignore_index=True)
 
     # Write the updated DataFrame back to the Google Sheet
     conn.write(df)
 
+    st.success("Data added successfully!")
     st.success("Data added successfully!")
