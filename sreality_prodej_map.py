@@ -22,7 +22,7 @@ def save_to_google_sheets(data, sheet_name):
     creds = ServiceAccountCredentials.from_json_keyfile_name("starry-computer-387421-161a86e54e0a.json", scope)
 
     # Authorize the clientsheet 
-    #client = gspread.authorize(creds)
+    client = gspread.authorize(creds)
 
     # Get the instance of the Spreadsheet
     #spreadsheet = client.open(sheet_name)
