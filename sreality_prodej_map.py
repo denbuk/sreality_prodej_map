@@ -25,7 +25,7 @@ def save_to_google_sheets(data, sheet_name):
     client = gspread.authorize(creds)
 
     # Get the instance of the Spreadsheet
-    #spreadsheet = client.open(sheet_name)
+    spreadsheet = client.open(sheet_name)
 
     # Create a new sheet with a unique name
     #new_sheet_name = f"Sheet {len(spreadsheet.worksheets()) + 1}"
