@@ -3,3 +3,7 @@ gsheetsdb==0.1.13.1
 pip==23.1.2
 pyparsing==3.0.9
 plotly==5.14.1
+streamlit
+requests
+gspread
+oauth2client
