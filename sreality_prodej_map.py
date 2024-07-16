@@ -2,6 +2,7 @@ import streamlit as st
 import gspread
 from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
+import pandas as pd
 
 ## CREDENTIALS - Custom DEPENDENCIES
 CREDENTIALS = {
