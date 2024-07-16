@@ -1,6 +1,6 @@
 import streamlit as st
 import gspread
-import datetime
+from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
 
 ## CREDENTIALS - Custom DEPENDENCIES
