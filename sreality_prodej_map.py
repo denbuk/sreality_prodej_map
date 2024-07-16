@@ -31,7 +31,7 @@ def save_to_google_sheets(data, sheet_name):
     #new_sheet_name = f"Sheet {len(spreadsheet.worksheets()) + 1}"
     #worksheet = spreadsheet.add_worksheet(title=new_sheet_name, rows="100", cols="20")
 
-    sr_estates_list = data._embedded.estates
+    sr_estates_list = data['_embedded']['estates'][0]
 
     st.write(sr_estates_list)
 
