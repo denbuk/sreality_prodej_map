@@ -4,3 +4,10 @@ pip==23.1.2
 streamlit>=1.28
 requests
 st-gsheets-connection
+gspread
+numpy
+oauth2client
+pandas
+scikit_learn
+streamlit
+plotly
