@@ -4,12 +4,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import json
 
-try:
-    import gspread
-    st.write("gspread is imported successfully.")
-except ImportError:
-    st.write("gspread is not installed.")
-
 # Function to fetch data from API endpoint
 def fetch_data(endpoint):
     response = requests.get(endpoint)
@@ -25,7 +19,7 @@ def save_to_google_sheets(data, sheet_name):
     scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
 
     # Add credentials to the account
-    creds = ServiceAccountCredentials.from_json_keyfile_name("starry-computer-387421-161a86e54e0a.json", scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name("starry-computer-387421-161a86e54e0b.json", scope)
 
     # Authorize the clientsheet 
     client = gspread.authorize(creds)
