@@ -22,14 +22,14 @@ def save_to_google_sheets(data, sheet_name):
     creds = ServiceAccountCredentials.from_json_keyfile_name("starry-computer-387421-161a86e54e0a.json", scope)
 
     # Authorize the clientsheet 
-    client = gspread.authorize(creds)
+    #client = gspread.authorize(creds)
 
     # Get the instance of the Spreadsheet
-    spreadsheet = client.open(sheet_name)
+    #spreadsheet = client.open(sheet_name)
 
     # Create a new sheet with a unique name
-    new_sheet_name = f"Sheet {len(spreadsheet.worksheets()) + 1}"
-    worksheet = spreadsheet.add_worksheet(title=new_sheet_name, rows="100", cols="20")
+    #new_sheet_name = f"Sheet {len(spreadsheet.worksheets()) + 1}"
+    #worksheet = spreadsheet.add_worksheet(title=new_sheet_name, rows="100", cols="20")
 
     sr_estates_list = data._embedded.estates
 
