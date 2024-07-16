@@ -22,7 +22,7 @@ if st.button("Add to Spreadsheet"):
     df = pd.concat([df, new_data], ignore_index=True)
 
     # Write the updated DataFrame back to the Google Sheet
-    conn.update(df)
+    conn.write(df)
 
     st.success("Data added successfully!")
     st.success("Data added successfully!")
