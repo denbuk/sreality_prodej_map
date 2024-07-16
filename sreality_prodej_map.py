@@ -1,47 +1,60 @@
 import streamlit as st
-from google.oauth2 import service_account
-from gsheetsdb import connect
-import pandas as pd
-import plotly.express as px
+import requests
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import json
 
-# Create a connection object.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
-)
-conn = connect(credentials=credentials)
+# Function to fetch data from API endpoint
+def fetch_data(endpoint):
+    response = requests.get(endpoint)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        st.error("Failed to fetch data from the endpoint")
+        return None
 
-# Perform SQL query on the Google Sheet.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-# @st.cache_data(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
+# Function to save data to Google Sheets
+def save_to_google_sheets(data, sheet_name):
+    # Define the scope
+    scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
 
-sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
+    # Add credentials to the account
+    creds = ServiceAccountCredentials.from_json_keyfile_name("path_to_your_credentials.json", scope)
 
-#sheet_id = "1l5YgElKRpM1trDFaIY-q-rAJ2OaPHLhTBVVQ0Ed0aeQ"
-#sheet_name = "sreality-api-first-prodej"
-#url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
+    # Authorize the clientsheet 
+    client = gspread.authorize(creds)
 
-#worksheet = conn.worksheet(sheet_url)
-#rows = worksheet.get_all_records()
+    # Get the instance of the Spreadsheet
+    sheet = client.open(sheet_name)
 
-# Print results.
-df = pd.DataFrame(rows)
+    # Get the first sheet of the Spreadsheet
+    worksheet = sheet.get_worksheet(0)
 
-fig = px.scatter_mapbox(df, lat="lat", lon="lon", color="price", size="size", size_max=15, color_continuous_scale=px.colors.sequential.Sunset, range_color=[0,20000000], hover_name="name", hover_data = ["price"], zoom=6)
+    # Clear existing data
+    worksheet.clear()
 
-fig.update_layout(mapbox_style="open-street-map")
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-st.title("Prodej bytů")
-st.plotly_chart(fig)
-#st.table(df)
-#df.columns = ['name', 'lat', 'lon']
+    # Prepare the data to be written
+    if isinstance(data, list):
+        # Assuming data is a list of dictionaries
+        keys = data[0].keys()
+        worksheet.append_row(keys)
+        for row in data:
+            worksheet.append_row(row.values())
+    elif isinstance(data, dict):
+        # Assuming data is a single dictionary
+        worksheet.append_row(data.keys())
+        worksheet.append_row(data.values())
+    else:
+        st.error("Unsupported data format")
 
+# Streamlit app layout
+st.title("Fetch and Save Data")
 
-#st.map(df)
+endpoint = st.text_input("API Endpoint", "https://api.example.com/data")
+sheet_name = st.text_input("Google Sheet Name", "Your Google Sheet Name")
+
+if st.button("Fetch and Save"):
+    data = fetch_data(endpoint)
+    if data:
+        save_to_google_sheets(data, sheet_name)
+        st.success("Data saved to Google Sheets successfully")
