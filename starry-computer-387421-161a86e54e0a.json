@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "starry-computer-387421",
+  "private_key_id": "161a86e54e0a920e3067caccb84467bcc24a80e4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDR78pbxPfT1GLe\ny7BQv8S5y+qT347/lVPHcyzmJjIi9gBhQbL2gMA+vPdecQGgM8KxT+7Wa/BlPYXy\nwrCWglrrmCYDOJxvpQDVrVt1/Z0S83TbXq7LOmHFp9FotdByavLgkHAJCOaw22aF\nRw85OAXElOgmqvlTWvTsA7650SlLctbNU+21XuTJCpIcN+Xe+bHOtG93GaydRTVV\n4Imlv/fhxUfW30SKICUyaIilsOHFP1cLKPzmPBWbsx2o5trY/75MfTPPsysbbE+1\nzqmS/kp9rENCjSNshsXZzQD6e3leH2GF4TbCVAyH4Fvk9tYifoM4H1/o7ZW6PgMw\nP5V6hMn3AgMBAAECgf8qG5WSNBfd54TDybzvEWDGw70cKMhzjqXVJwaoc2mnK8s9\nC/3ai92wkMFf8cvhrxwiKNjMTdBbSuSeAPnTO1cSRFiYdj/xr7V3fh5yj8ABeZQL\neEPxMVDFQhXHGmKbROR8BqhjdYtiKsGoewwQNLFLPyUM/fnYaiLy+VNrWD46gMU6\nqmkY+MY6xs7rvQNJ5dVjnBq31ubLwR1T3ovej7w5Dm+rBRamt8B96Sz4qD9ZprpM\n06NfW2f2FdnEmvwjULPTc2U42oyYuo162U+yU0KKhuBkv6inY05mS+EclGg+/lOl\nqWAu8TAt9mIsEd//apSkNJOEVI106mOk8gGF+a0CgYEA8qWdrrNKmUljwdJJIwqF\n1BMqpwtURbiSYF7X4jFu2dEi8WeZKzEjFU0zWvpszcAdAYdrE2tYAVUvFQlM+tDS\ncU3Tt7zUUuo1Ixcez6UB6RBsSzePllF04IjISUTWqdNqQuvSafPifkM93CRIrGRN\nmN/QoH5PZdUNiQtDqQzW/aUCgYEA3X1bHrCj/1SXsQ7q14o7g0XyQKAXcq63sa5A\nt8Lul7iYsGkC8EbwFW0xO7Gnjf0LcF7ovXHAK7YkM+YL1GV0cPh8OPlvtpXSUGb7\nlOzUi9RybPX/Eh1IRZPcLYs7kUhrRyOfxJTUddlhm+1VKQCpcCWGJH1jafWohTfB\n0OD2zmsCgYEAiDZ8nDO97usJ+yZHNEqV8gWIbhmoBzOjyEG1wx6o8dG7YfUcQOjm\nnvCloa7vIVl1bwRMEayyzJy7P33nHu3XFQ/xiDWSo7Eifz5dZ4dj2SgFAvx/uIyl\npd5jQO5J6y/peQPVLPFh9itdMJWVzmDIRsdt4IrHm4zMemA+bUnt7pkCgYEAgEC/\nS7UjMY2NTPSDXg3oSiptjahmC31KVzO8u+u/dtFocPZNwk6BZRbWZGeJy3lUb1w1\nzsUYbvdIXVj/Tpz04Rmx7NfbLVHx96a6VVER/molXBzR925HVCq7Ww/9jTHvFMF3\nGUDJCfi3QbAbGOQOOScxVt3YfBnI3GMd8tLhd0MCgYA6A5wx3stWY5ujonXlLNSA\nLbKXAdm9FzzPvFh3IzVdjp52fL5qHbUd7efuCQtsIpwhXBhRWiGVIGrnzwL1R+Eq\no9reeSzDi5UkkkcH81eez8Yqk/uz1SPWkEOu/WVQX6mHzL2fBapDuUWHwhqx4omP\nEsr2ha4V4+FAi9Fc4rPKgA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-acc-streamplit@starry-computer-387421.iam.gserviceaccount.com",
+  "client_id": "113757705169811029182",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-acc-streamplit%40starry-computer-387421.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
