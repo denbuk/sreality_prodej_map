@@ -7,14 +7,14 @@ from oauth2client.service_account import ServiceAccountCredentials
 CREDENTIALS = {
     "type": "service_account",
     "project_id": "<YOUR-PROJECT-ID>",
-    "private_key_id": os.environ["PRIVATE_KEY_ID"],
-    "private_key": os.environ["PRIVATE_KEY"],
-    "client_email": os.environ["CLIENT_EMAIL"],
-    "client_id": os.environ["CLIENT_ID"],
+    "private_key_id": st.secrets["PRIVATE_KEY_ID"],
+    "private_key": st.secrets["PRIVATE_KEY"],
+    "client_email": st.secrets["CLIENT_EMAIL"],
+    "client_id": st.secrets["CLIENT_ID"],
     "auth_url": "https://accounts.google.com/o/oauth2/auth",
     "token_uri": "https://oauth2.googleapis.com/token",
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": os.environ["CLIENT_X509_CERT_URL"]
+    "client_x509_cert_url": st.secrets["CLIENT_X509_CERT_URL"]
     }
 
 scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
