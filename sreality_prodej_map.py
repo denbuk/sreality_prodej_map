@@ -19,7 +19,7 @@ def save_to_google_sheets(data, sheet_name):
     scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
 
     # Add credentials to the account
-    creds = ServiceAccountCredentials.from_json_keyfile_name("path_to_your_credentials.json", scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name("starry-computer-387421-161a86e54e0a.json", scope)
 
     # Authorize the clientsheet 
     client = gspread.authorize(creds)
