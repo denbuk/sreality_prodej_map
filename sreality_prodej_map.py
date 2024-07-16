@@ -25,30 +25,37 @@ def save_to_google_sheets(data, sheet_name):
     client = gspread.authorize(creds)
 
     # Get the instance of the Spreadsheet
-    sheet = client.open(sheet_name)
+    spreadsheet = client.open(sheet_name)
 
-    # Get the first sheet of the Spreadsheet
-    worksheet = sheet.get_worksheet(0)
+    # Create a new sheet with a unique name
+    new_sheet_name = f"Sheet {len(spreadsheet.worksheets()) + 1}"
+    worksheet = spreadsheet.add_worksheet(title=new_sheet_name, rows="100", cols="20")
 
-    # Clear existing data
-    worksheet.clear()
+    sr_estates_list = data._embedded.estates
 
+    st.write(sr_estates_list)
+
+
+'''
     # Prepare the data to be written
     if isinstance(data, list):
-        # Assuming data is a list of dictionaries
-        keys = data[0].keys()
+        # Assuming data is a list of dictionaries, append only the first row for simplicity
+        keys = list(data[0].keys())
+        values = list(data[0].values())
         worksheet.append_row(keys)
-        for row in data:
-            worksheet.append_row(row.values())
+        worksheet.append_row(values)
     elif isinstance(data, dict):
         # Assuming data is a single dictionary
-        worksheet.append_row(data.keys())
-        worksheet.append_row(data.values())
+        keys = list(data.keys())
+        values = list(data.values())
+        worksheet.append_row(keys)
+        worksheet.append_row(values)
     else:
         st.error("Unsupported data format")
 
 # Streamlit app layout
 st.title("Fetch and Save Data")
+'''
 
 endpoint = st.text_input("API Endpoint", "https://api.example.com/data")
 sheet_name = st.text_input("Google Sheet Name", "Your Google Sheet Name")
