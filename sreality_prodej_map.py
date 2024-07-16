@@ -6,9 +6,9 @@ import json
 
 try:
     import gspread
-    print("gspread is imported successfully.")
+    st.write("gspread is imported successfully.")
 except ImportError:
-    print("gspread is not installed.")
+    st.write("gspread is not installed.")
 
 # Function to fetch data from API endpoint
 def fetch_data(endpoint):
